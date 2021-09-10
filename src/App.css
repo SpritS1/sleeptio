@@ -1,15 +1,17 @@
 @charset "UTF-8";
 .navbar {
+  width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  padding: 1rem 0;
+  padding: 0.75rem 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  margin-bottom: 2rem;
 }
 .navbar__title {
-  font-size: 2rem;
+  font-size: 1.75rem;
   text-decoration: none;
   color: #f2f2f2;
 }
@@ -25,10 +27,74 @@
   margin-right: 0.5rem;
 }
 
+.hours-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 4rem;
+  text-align: center;
+  color: #e6e6e6;
+}
+
+.calculator {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: rgba(230, 230, 230, 0.1);
+  padding: 2rem 0.5rem;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.calculator h2 {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.time-input {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 2rem;
+  background: white;
+  color: #1a1a1a;
+}
+
+.mode-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+.mode-buttons__button {
+  padding: 0.5rem;
+  border: 3px solid #e6e6e6;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: none;
+  color: #e6e6e6;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+.mode-buttons__button:hover {
+  background: rgba(230, 230, 230, 0.2);
+}
+.mode-buttons__button.active {
+  background: #e6e6e6;
+  color: #0f4b80;
+}
+.mode-buttons__button.active:hover {
+  background: rgba(230, 230, 230, 0.9);
+  border: 3px solid #e6e6e6;
+}
+
 .app {
-  width: 100%;
-  height: 100vh;
+  color: #f2f2f2;
+  min-height: 100vh;
   background-color: #0f4b80;
+  padding: 0 1rem;
 }
 
 /*# sourceMappingURL=App.css.map */

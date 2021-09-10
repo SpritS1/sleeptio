@@ -1,8 +1,11 @@
 @use './sass/variables.scss' as *;
 @use './components/Navbar/Navbar.scss';
+@use './components/Calculator/Calculator.scss';
+@use './components/Calculator/ModeButtons.scss';
 
 .app {
-    width: 100%;
-    height: 100vh;
+    color: $font-color;
+    min-height: 100vh;
     background-color: $background-color;
+    padding: 0 1rem;
 }

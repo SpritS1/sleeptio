@@ -1,16 +1,18 @@
 @use '../../sass/variables' as *;
 
 .navbar {
+    width: 100%;
     max-width: 600px;
     margin: 0 auto;
-    padding: 1rem 0;
+    padding: .75rem 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid hsl(0, 0%, 0%, .25);
+    margin-bottom: 2rem;
 
     &__title {
-        font-size: 2rem;
+        font-size: 1.75rem;
         text-decoration: none;
         color: $font-color;
 
