@@ -1,11 +1,12 @@
 import Hour from "./Hour";
 
-const HoursList = (props) => {
+const HoursList = ({resultHours}) => {
     return ( 
         <ul className='hours-list'>
-            <Hour></Hour>
-            <Hour></Hour>
-            <Hour></Hour>
+            {resultHours && resultHours.map((hour) => {
+                console.log(hour)
+                return <Hour hour={hour} key={hour}></Hour>
+            })}
         </ul>
      );
 }

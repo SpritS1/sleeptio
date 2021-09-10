@@ -1,4 +1,4 @@
-const Hour = ({hour = '21:37'}) => {
+const Hour = ({hour}) => {
     return ( 
         <li className='hour'>{hour},</li>
      );
