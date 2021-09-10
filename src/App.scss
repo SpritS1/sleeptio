@@ -1,4 +1,5 @@
 @use './sass/variables.scss' as *;
+@use './components/Navbar/Navbar.scss';
 
 .app {
     width: 100%;
