@@ -15,26 +15,34 @@ const Calculator = () => {
       return date;
    }
 
-   // odpala sie za pierwszym razem
-   useEffect(() => {      
-      const convertedTime = parseToDate(time);
-      const sleepTime = [];
-      
-      for (let i = 5; i <= 7; i++) {
-         const calculatedTime = moment(convertedTime).add(90 * i, 'minutes')._d;
-         const calcTimeHours = String(calculatedTime.getHours());
-         let calcTimeMinutes = String(calculatedTime.getMinutes());
+   useEffect(() => {     
+      if (time) {
+         const convertedTime = parseToDate(time);
+         const sleepTime = [];
+         
+         for (let i = 4; i <= 6; i++) {
+            let calculatedTime;
+            if (calculatorMode === 1) {
+               calculatedTime = moment(convertedTime).add(90 * i, 'minutes')._d;
+            } else if (calculatorMode === 2) {
+               calculatedTime = moment(convertedTime).subtract(90 * i, 'minutes')._d;
+            }
 
-         if (calcTimeMinutes.length === 1) {
-            calcTimeMinutes += '0';
+            const calcTimeHours = String(calculatedTime.getHours());
+            let calcTimeMinutes = String(calculatedTime.getMinutes());
+
+            if (calcTimeMinutes.length === 1) {
+               calcTimeMinutes += '0';
+            }
+
+            const StringDate = calcTimeHours + ':' + calcTimeMinutes;
+            sleepTime.push(StringDate);
          }
 
-         const StringDate = calcTimeHours + ':' + calcTimeMinutes;
-         sleepTime.push(StringDate);
+         setResultHours(sleepTime);         
       }
 
-      setResultHours(sleepTime);
-   }, [time])
+   }, [time, calculatorMode])
 
    useEffect(() => {
       console.log(resultHours);
