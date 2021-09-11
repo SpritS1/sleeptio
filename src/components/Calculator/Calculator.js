@@ -1,6 +1,6 @@
 import ModeButtons from "./ModeButtons";
 import CalcResult from "./CalcResult";
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import moment from "moment";
 
 const Calculator = () => {
@@ -14,8 +14,8 @@ const Calculator = () => {
       return date;
    }
 
-   useMemo(() => {     
-      if (time) {
+   useEffect(() => {     
+      const calculateSleepHours = (time) => {
          const convertedTime = parseToDate(time);
          const sleepTime = [];
          
@@ -26,21 +26,27 @@ const Calculator = () => {
             } else if (calculatorMode === 2) {
                calculatedTime = moment(convertedTime).subtract(90 * i, 'minutes')._d;
             }
-
+   
             const calcTimeHours = String(calculatedTime.getHours());
             let calcTimeMinutes = String(calculatedTime.getMinutes());
-
+   
             if (calcTimeMinutes.length === 1) {
                calcTimeMinutes += '0';
             }
-
+   
             const StringDate = calcTimeHours + ':' + calcTimeMinutes;
             sleepTime.push(StringDate);
          }
+         return sleepTime;
+      }
+
+      if (time) {
+         const sleepHours = calculateSleepHours(time);
+
          if (calculatorMode === 1) {
-            setResultHours(sleepTime);         
+            setResultHours(sleepHours);         
          } else if (calculatorMode === 2) {
-            setResultHours(sleepTime.reverse());         
+            setResultHours(sleepHours.reverse());         
          } 
       }
 
@@ -50,7 +56,7 @@ const Calculator = () => {
       <div className='calculator'> 
          <ModeButtons calculatorMode={calculatorMode} setCalculatorMode={setCalculatorMode}/>
          <input type="time" className="time-input" value={time} onChange={(e) => setTime(e.target.value)}/>
-         <CalcResult resultHours={resultHours} calculatorMode={calculatorMode}/>
+         {resultHours.length !== 0 && <CalcResult resultHours={resultHours} calculatorMode={calculatorMode}/>}
       </div>
    );
      
