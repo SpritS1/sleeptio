@@ -1,7 +1,5 @@
-$font-color: hsl(0, 0%, 95%);
-$background-color: hsl(208, 79%, 28%);
-
 $border-radius: 8px;
+$max-width: 700px;
 
 $white: hsl(0, 0%, 90%);
 $black: hsl(0, 0%, 10%);
@@ -9,3 +7,16 @@ $blue: hsl(208, 79%, 28%);
 $blue-light: hsl(204, 100%, 49%);
 $green: #00C29C;
 $yellow: #DBA11C;
+
+$font-color-white: hsl(0, 0%, 95%);
+$font-color-dark: hsl(0, 0%, 10%);
+
+$background-color: $black;
+
+h1 {
+    font-size: 1.75rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}

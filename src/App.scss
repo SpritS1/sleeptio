@@ -4,8 +4,63 @@
 @use './components/Calculator/ModeButtons.scss';
 
 .app {
-    color: $font-color;
-    min-height: 100vh;
     background-color: $background-color;
-    padding: 0 1rem;
+    color:hsl(208, 79%, 95%);
+
+
+    &__main-page {
+        color: $font-color-white;
+        background-color: $blue;
+        min-height: 100vh;
+        padding: 0 1rem 2rem 1rem;
+    }
+
+    &__about {
+        max-width: $max-width;
+        padding: 1rem 1rem;
+        margin: 0 auto;
+
+        h1 {
+            margin: 2rem 0;
+        }
+
+        h2 {
+            margin: 1.5rem 0;
+            
+            &::after {
+                content: '';
+                display: block;
+                width: 2rem;
+                padding-top: 8px;
+                border-bottom: 4px solid $blue-light;
+                opacity: 0.6;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: $blue-light;
+            font-weight: bold;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 1rem;
+            li {
+                font-size: 1.1rem;
+                margin: .5rem 0;
+                
+                &::before {
+                    content: '\2022';
+                    color: $blue-light;
+                    font-weight: bold;
+                    display: inline-block;
+                    margin-top: auto;
+                    margin-bottom: auto;
+                    width: 1em;
+                    margin-left: -1em;
+                }
+            }
+        }
+    }
 }

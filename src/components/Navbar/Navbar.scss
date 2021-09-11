@@ -2,7 +2,7 @@
 
 .navbar {
     width: 100%;
-    max-width: 600px;
+    max-width: $max-width;
     margin: 0 auto;
     padding: .75rem 0;
     display: flex;
@@ -14,7 +14,7 @@
     &__title {
         font-size: 1.75rem;
         text-decoration: none;
-        color: $font-color;
+        color: $font-color-white;
 
         &::before {
             display: inline-block;
