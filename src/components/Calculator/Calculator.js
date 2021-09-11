@@ -5,7 +5,7 @@ import moment from "moment";
 
 const Calculator = () => {
    const [time, setTime] = useState('');
-   const [calculatorMode, setCalculatorMode] = useState(1);
+   const [calculatorMode, setCalculatorMode] = useState('sleep');
    const [resultHours, setResultHours] = useState([])
 
    const parseToDate = (time) => {
@@ -15,15 +15,15 @@ const Calculator = () => {
    }
 
    useEffect(() => {     
-      const calculateSleepHours = (time) => {
+      const calculateSleepHours = (time, mode) => {
          const convertedTime = parseToDate(time);
          const sleepTime = [];
          
          for (let i = 4; i <= 7; i++) {
             let calculatedTime;
-            if (calculatorMode === 1) {
+            if (mode === 'sleep') {
                calculatedTime = moment(convertedTime).add(90 * i, 'minutes')._d;
-            } else if (calculatorMode === 2) {
+            } else if (mode === 'wake') {
                calculatedTime = moment(convertedTime).subtract(90 * i, 'minutes')._d;
             }
    
@@ -41,11 +41,11 @@ const Calculator = () => {
       }
 
       if (time) {
-         const sleepHours = calculateSleepHours(time);
+         const sleepHours = calculateSleepHours(time, calculatorMode);
 
-         if (calculatorMode === 1) {
+         if (calculatorMode === 'sleep') {
             setResultHours(sleepHours);         
-         } else if (calculatorMode === 2) {
+         } else if (calculatorMode === 'wake') {
             setResultHours(sleepHours.reverse());         
          } 
       }
