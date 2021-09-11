@@ -27,6 +27,13 @@
   margin-right: 0.5rem;
 }
 
+.hour::after {
+  content: ",";
+}
+.hour:last-child::after {
+  content: "";
+}
+
 .hours-list {
   list-style-type: none;
   margin: 0;
@@ -47,7 +54,7 @@
   margin: 0 auto;
 }
 .calculator h2 {
-  margin: 1rem 0;
+  margin: 2rem 0;
   text-align: center;
 }
 
@@ -65,7 +72,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
-  margin-bottom: 2rem;
 }
 .mode-buttons__button {
   padding: 0.5rem;

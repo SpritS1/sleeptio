@@ -1,6 +1,6 @@
 const Hour = ({hour}) => {
     return ( 
-        <li className='hour'>{hour},</li>
+        <li className='hour'>{hour}</li>
      );
 }
  

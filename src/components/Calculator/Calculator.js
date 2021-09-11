@@ -1,6 +1,6 @@
 import ModeButtons from "./ModeButtons";
 import CalcResult from "./CalcResult";
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 import moment from "moment";
 
 const Calculator = () => {
@@ -11,16 +11,15 @@ const Calculator = () => {
    const parseToDate = (time) => {
       const date = new Date();
       date.setHours(time.substr(0, 2), time.substr(3, 2), 0)
-      console.log(date)
       return date;
    }
 
-   useEffect(() => {     
+   useMemo(() => {     
       if (time) {
          const convertedTime = parseToDate(time);
          const sleepTime = [];
          
-         for (let i = 4; i <= 6; i++) {
+         for (let i = 4; i <= 7; i++) {
             let calculatedTime;
             if (calculatorMode === 1) {
                calculatedTime = moment(convertedTime).add(90 * i, 'minutes')._d;
@@ -43,10 +42,6 @@ const Calculator = () => {
       }
 
    }, [time, calculatorMode])
-
-   useEffect(() => {
-      console.log(resultHours);
-   })
 
    return ( 
       <div className='calculator'> 

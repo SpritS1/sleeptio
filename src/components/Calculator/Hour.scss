@@ -1,0 +1,10 @@
+.hour {
+    &::after {
+        // font-size: 1.5rem;
+        content: ',';
+    }
+
+    &:last-child::after {
+        content: '';
+    }
+}
