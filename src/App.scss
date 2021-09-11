@@ -2,6 +2,7 @@
 @use './components/Navbar/Navbar.scss';
 @use './components/Calculator/Calculator.scss';
 @use './components/Calculator/ModeButtons.scss';
+@use './components/Footer.scss';
 
 .app {
     background-color: $background-color;
@@ -17,7 +18,7 @@
 
     &__about {
         max-width: $max-width;
-        padding: 1rem 1rem;
+        padding: 2rem 1rem;
         margin: 0 auto;
 
         h1 {

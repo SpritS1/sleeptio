@@ -1,6 +1,7 @@
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Calculator from './components/Calculator/Calculator';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -32,7 +33,8 @@ function App() {
           <li>Waking up mid-cycle can leave you feeling grumpy and tired, that's why you should wake up in between those phases.</li>
         </ul>
       </div>
-
+      
+      <Footer />
     </div>
   );
 }

@@ -1,0 +1,17 @@
+@use '../sass/variables' as *;
+
+.footer {
+    padding: 2rem 0;
+    text-align: center;
+    background-color: $gray;    
+
+    &__text {
+        font-weight: unset;
+        margin: 0 0 1rem 0
+    }
+
+    &__copyright {
+        font-size: .8rem;
+        color: rgba($font-color-white, .75);
+    }
+}

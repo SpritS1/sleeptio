@@ -104,6 +104,20 @@ h2 {
   border: 3px solid #e6e6e6;
 }
 
+.footer {
+  padding: 2rem 0;
+  text-align: center;
+  background-color: #333333;
+}
+.footer__text {
+  font-weight: unset;
+  margin: 0 0 1rem 0;
+}
+.footer__copyright {
+  font-size: 0.8rem;
+  color: rgba(242, 242, 242, 0.75);
+}
+
 .app {
   background-color: #1a1a1a;
   color: #e8f3fc;
@@ -116,7 +130,7 @@ h2 {
 }
 .app__about {
   max-width: 700px;
-  padding: 1rem 1rem;
+  padding: 2rem 1rem;
   margin: 0 auto;
 }
 .app__about h1 {

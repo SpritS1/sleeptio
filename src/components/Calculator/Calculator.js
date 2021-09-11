@@ -37,8 +37,11 @@ const Calculator = () => {
             const StringDate = calcTimeHours + ':' + calcTimeMinutes;
             sleepTime.push(StringDate);
          }
-
-         setResultHours(sleepTime);         
+         if (calculatorMode === 1) {
+            setResultHours(sleepTime);         
+         } else if (calculatorMode === 2) {
+            setResultHours(sleepTime.reverse());         
+         } 
       }
 
    }, [time, calculatorMode])
