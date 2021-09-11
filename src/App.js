@@ -2,16 +2,18 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Calculator from './components/Calculator/Calculator';
 import Footer from './components/Footer';
+import CurrentTimeResults from './components/CurrentTimeResults';
 
 function App() {
   return (
     <div className="app">
       <div className="app__main-page">
         <Navbar />
-        <Calculator />        
+        <Calculator />      
+        <CurrentTimeResults />
       </div>
       <div className="app__about">
-        <h1>An online sleep cycles calculator to improve your sleep quality</h1>
+        <h1>Sleep cycle calculator to improve sleep quality</h1>
 
         <h2>What is Sleeptio?</h2>
         <p>

@@ -2,6 +2,7 @@
 @use './components/Navbar/Navbar.scss';
 @use './components/Calculator/Calculator.scss';
 @use './components/Calculator/ModeButtons.scss';
+@use './components/CurrentTimeResults.scss';
 @use './components/Footer.scss';
 
 .app {
@@ -13,7 +14,7 @@
         color: $font-color-white;
         background-color: $blue;
         min-height: 100vh;
-        padding: 0 1rem 2rem 1rem;
+        padding: 0 1rem 4rem 1rem;
     }
 
     &__about {
@@ -22,7 +23,7 @@
         margin: 0 auto;
 
         h1 {
-            margin: 2rem 0;
+            margin: 0 0 4rem 0;
         }
 
         h2 {
