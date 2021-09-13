@@ -29,10 +29,11 @@ const Calculator = () => {
    
             const calcTimeHours = String(calculatedTime.getHours());
             let calcTimeMinutes = String(calculatedTime.getMinutes());
-   
+
             if (calcTimeMinutes.length === 1) {
-               calcTimeMinutes += '0';
+               calcTimeMinutes = '0' + calcTimeMinutes;
             }
+
    
             const StringDate = calcTimeHours + ':' + calcTimeMinutes;
             sleepTime.push(StringDate);
