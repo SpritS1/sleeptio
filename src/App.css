@@ -248,6 +248,47 @@ h2 {
   color: rgba(242, 242, 242, 0.75);
 }
 
+.modal-overlay {
+  background-color: rgba(26, 26, 26, 0.5);
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.modal {
+  position: fixed;
+  top: 15%;
+  left: 50%;
+  width: 75vw;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  background-color: #e6e6e6;
+  padding: 1.5rem 2rem;
+}
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  color: rgba(26, 26, 26, 0.5);
+  border-bottom: 1px solid rgba(26, 26, 26, 0.2);
+}
+.modal__title {
+  font-size: 1.5rem;
+  margin: 0;
+}
+.modal__close {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.modal__close:hover {
+  color: rgba(26, 26, 26, 0.8);
+}
+
 .app {
   background-color: #1a1a1a;
   color: #e8f3fc;

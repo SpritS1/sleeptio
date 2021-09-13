@@ -4,6 +4,7 @@
 @use './components/Calculator/ModeButtons.scss';
 @use './components/CurrentTimeResults.scss';
 @use './components/Footer.scss';
+@use './components/Modal.scss';
 
 .app {
     background-color: $background-color;
