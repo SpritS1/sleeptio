@@ -1,5 +1,7 @@
 @use '../../sass/variables.scss' as *;
 @use './HoursList.scss';
+@use './NotificationButton.scss';
+@use './CalcResult.scss';
 
 .calculator {
     display: flex;

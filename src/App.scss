@@ -12,7 +12,7 @@
 
     &__main-page {
         color: $font-color-white;
-        background-color: $blue;
+        background: linear-gradient(0deg, rgba(15,75,128,1) 50%, rgb(17, 90, 153) 100%);
         min-height: 100vh;
         padding: 0 1rem 4rem 1rem;
     }
@@ -35,7 +35,7 @@
                 width: 2rem;
                 padding-top: 8px;
                 border-bottom: 4px solid $blue-light;
-                opacity: 0.6;
+                opacity: 0.8;
             }
         }
 
