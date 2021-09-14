@@ -1,14 +1,14 @@
 import { useState } from "react";
 import Modal from "../Modal";
 
-const NotificationButton = ({resultHours}) => {
-    const [isNotificationSet, setIsNotificationSet] = useState(false);
+const NotificationButton = ({resultHours, time, calculatorMode}) => {
+    // const [isNotificationSet, setIsNotificationSet] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
 
     return ( 
         <>  
-            {isModalOpen && <Modal setIsModalOpen={setIsModalOpen} resultHours={resultHours}/>}
+            {isModalOpen && <Modal setIsModalOpen={setIsModalOpen} resultHours={resultHours} time={time} calculatorMode={calculatorMode}/>}
             <button className="notification-button" onClick={() => {
                 Notification.requestPermission()
                 .then(() => {

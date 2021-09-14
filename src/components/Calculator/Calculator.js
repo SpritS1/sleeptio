@@ -1,4 +1,5 @@
 import ModeButtons from "./ModeButtons";
+import NotificationButton from "./NotificationButton";
 import CalcResult from "./CalcResult";
 import { useEffect, useState } from "react";
 import moment from "moment";
@@ -57,7 +58,10 @@ const Calculator = () => {
       <div className='calculator'> 
          <ModeButtons calculatorMode={calculatorMode} setCalculatorMode={setCalculatorMode}/>
          <input type="time" className="time-input" value={time} onChange={(e) => setTime(e.target.value)}/>
-         {resultHours.length !== 0 && <CalcResult resultHours={resultHours} calculatorMode={calculatorMode}/>}
+         {resultHours.length !== 0 && <>
+            <CalcResult resultHours={resultHours} calculatorMode={calculatorMode}/>
+            <NotificationButton resultHours={resultHours} time={time} calculatorMode={calculatorMode}/>
+         </>}
       </div>
    );
      

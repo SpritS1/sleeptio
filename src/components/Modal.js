@@ -1,10 +1,59 @@
-import { useState } from "react";
+import { useState} from "react";
+import moment from "moment";
 import ReactDom from "react-dom";
 
-const Modal = ({setIsModalOpen, resultHours}) => {
-    const [bedTimeHour, setBedTimeHour] = useState(resultHours[0]);
-    const [notificationTime, setNotificationTime] = useState('30');
+const Modal = ({setIsModalOpen, resultHours, time, calculatorMode}) => {
+    const [bedTime, setBedTime] = useState(resultHours[0]);
+    const [minutesBeforeBedTime, setminutesBeforeBedTime] = useState('15');
     const [notificationSound, setNotificationSound] = useState('/audio/juntos.mp3');
+
+    // const currentTime = moment(new Date());
+
+
+    // const calculateNotificationTime = (bedTime, notificationTime, currentTime) => {
+    //     const date = new Date();
+    //     console.log(date);
+    //     date.setHours(bedTime.substr(0, 2), bedTime.substr(3, 2), 0)
+    //     console.log(date);
+    // }
+
+    const parseTimeToDate = (time) => {
+        const date = new Date();
+        date.setHours(time.substr(0, 2), time.substr(3, 2), 0);
+        return date;
+    }
+
+    const handleNotificationButton = (time) => {
+        const currentTime = new Date();
+        const currentTimeMinutes = (currentTime.getHours() * 60) + currentTime.getMinutes();
+
+        let timeout;
+        
+        if (calculatorMode === 'sleep') {
+            const dateTime = parseTimeToDate(time);
+            console.log('DateTime: ' + dateTime);
+
+            const notificationTime = moment(dateTime).subtract(minutesBeforeBedTime, 'minutes')._d;
+            console.log('NotificationTime: ' + notificationTime)
+
+            const timeoutTime = moment(notificationTime).subtract(currentTimeMinutes, 'minutes')._d;
+            console.log('Timeout time: ' + timeoutTime);
+
+            const timeoutInMiliseconds = (timeoutTime.getHours() * 60) + timeoutTime.getMinutes() * 60000;
+
+            timeout = timeoutInMiliseconds;
+        }
+
+
+        setTimeout(() => {
+            const icon = 'favicon.png'
+            const audio = new Audio(notificationSound);
+            new Notification("Hey, it's time to sleep!", {body: `You should fall asleep at ${bedTime}`, icon})
+            audio.play();
+        }, timeout)
+
+        setIsModalOpen(false)
+    }
 
     return ReactDom.createPortal(
         <>  
@@ -12,21 +61,26 @@ const Modal = ({setIsModalOpen, resultHours}) => {
             <div className="modal">
                 <div className="modal__header">
                     <h2 className="modal__title"> Notification settings</h2>
-                    <i class="fas fa-times modal__close" onClick={() => setIsModalOpen(false)}></i>
+                    <i className="fas fa-times modal__close" onClick={() => setIsModalOpen(false)}></i>
                 </div>
 
                 <div className="modal__section">
                     <p>Bedtime hour:</p>
-                    <select value={bedTimeHour} onChange={(e) => setBedTimeHour(e.target.value)}>
-                        {resultHours.map((hour) => {
-                            return <option>{hour} </option>
-                        })}
-                    </select>
+                    {calculatorMode === 'wake' && 
+                        <select value={bedTime} onChange={(e) => setBedTime(e.target.value)}>
+                            {resultHours.map((hour) => {
+                                return <option>{hour} </option>
+                            })}
+                        </select>
+                    }
+                    {calculatorMode === 'sleep' && 
+                        <span>{time}</span>
+                    }
                 </div>
 
                 <div className="modal__section">
                     <p>Notify me ... before bedtime:</p>
-                    <select value={notificationTime} onChange={(e) => setNotificationTime(e.target.value)}>
+                    <select value={minutesBeforeBedTime} onChange={(e) => setminutesBeforeBedTime(e.target.value)}>
                         <option value="5">5 min</option>
                         <option value="10">10 min</option>
                         <option value="15">15 min</option>
@@ -47,16 +101,7 @@ const Modal = ({setIsModalOpen, resultHours}) => {
 
                 <p className="modal__warning">Do not close the page, otherwise the notification will not work!</p>
 
-                <button className="modal__button" onClick={() => {
-                    setTimeout(() => {
-                        const icon = 'favicon.png'
-                        const audio = new Audio(notificationSound);
-                        new Notification("Hey, it's time to sleep!", {body: `You should fall asleep at ${bedTimeHour}`, icon})
-                        audio.play();
-                    }, 5000)
-
-                    setIsModalOpen(false)
-                }}>Set up the notification</button>
+                <button className="modal__button" onClick={() => handleNotificationButton(time)}>Set up the notification</button>
             </div>
         </>, document.getElementById('modal')
      );
