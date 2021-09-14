@@ -9,7 +9,17 @@ const NotificationButton = ({resultHours}) => {
     return ( 
         <>  
             {isModalOpen && <Modal setIsModalOpen={setIsModalOpen} resultHours={resultHours}/>}
-            <button className="notification-button" onClick={() => setIsModalOpen(true)}>Notify me</button>
+            <button className="notification-button" onClick={() => {
+                Notification.requestPermission()
+                .then(() => {
+                    if (Notification.permission === 'granted') {
+                        setIsModalOpen(true);
+                    } else if (Notification.permission === "denied") {
+                        alert("Notifications blocked. Please enable them in your browser.");
+                      }
+                })
+                }}>Notify me
+            </button>
         </>
      );
 }
