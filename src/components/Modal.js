@@ -47,9 +47,13 @@ const Modal = ({setIsModalOpen, resultHours, time, calculatorMode}) => {
 
 
         setTimeout(() => {
-            const icon = 'favicon.png'
+            const options = {
+                icon: 'favicon.png',
+                body: `You should fall asleep at ${calculatorMode === 'sleep' ? time : bedTime}`
+            }
+
             const audio = new Audio(notificationSound);
-            new Notification("Hey, it's time to sleep!", {body: `You should fall asleep at ${time}`, icon})
+            new Notification("Hey, it's time to sleep 😴", options)
             audio.play();
         }, timeout)
 

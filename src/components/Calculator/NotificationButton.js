@@ -8,14 +8,19 @@ const NotificationButton = ({resultHours, time, calculatorMode}) => {
         <>  
             {isModalOpen && <Modal setIsModalOpen={setIsModalOpen} resultHours={resultHours} time={time} calculatorMode={calculatorMode}/>}
             <button className="notification-button" onClick={() => {
-                Notification.requestPermission()
-                .then(() => {
-                    if (Notification.permission === 'granted') {
-                        setIsModalOpen(true);
-                    } else if (Notification.permission === "denied") {
-                        alert("Notifications blocked. Please enable them in your browser.");
-                      }
-                })
+                if ('Notification' in window) {
+                    Notification.requestPermission()
+                    .then(() => {
+                        if (Notification.permission === 'granted') {
+                            setIsModalOpen(true);
+                        } else if (Notification.permission === "denied") {
+                            alert("Notifications blocked. Please enable them in your browser.");
+                        }
+                    })                    
+                } else {
+                    console.log('Your browser does not support notifications 😔')
+                }
+
                 }}>Notify me
             </button>
         </>
