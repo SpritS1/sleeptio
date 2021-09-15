@@ -434,12 +434,21 @@ h2 {
   right: 2rem;
   cursor: pointer;
   transition: opacity 0.1s ease-in-out;
+  animation: popup 0.5s;
 }
 .popup:hover {
   opacity: 0.8;
 }
 .popup__close {
   margin-left: 1rem;
+}
+@keyframes popup {
+  from {
+    right: -50px;
+  }
+  to {
+    right: 2rem;
+  }
 }
 
 .app {

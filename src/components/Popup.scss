@@ -17,6 +17,7 @@
     right: 2rem;
     cursor: pointer;
     transition: opacity .1s ease-in-out;
+    animation: popup .5s;
 
     &:hover {
         opacity: .8;
@@ -24,5 +25,10 @@
 
     &__close {
         margin-left: 1rem;
+    }
+
+    @keyframes popup {
+        from {right: -50px}
+        to {right: 2rem}
     }
 }
