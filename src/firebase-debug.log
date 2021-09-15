@@ -1,0 +1,52 @@
+[debug] [2021-09-15T13:35:57.990Z] ----------------------------------------------------------------------
+[debug] [2021-09-15T13:35:57.993Z] Command:       D:\Programowanie\nodejs\node.exe C:\Users\mateu\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2021-09-15T13:35:57.993Z] CLI Version:   9.16.6
+[debug] [2021-09-15T13:35:57.993Z] Platform:      win32
+[debug] [2021-09-15T13:35:57.993Z] Node Version:  v16.4.1
+[debug] [2021-09-15T13:35:58.030Z] Time:          Wed Sep 15 2021 15:35:57 GMT+0200 (czas środkowoeuropejski letni)
+[debug] [2021-09-15T13:35:58.030Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-09-15T13:35:58.043Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2021-09-15T13:35:58.177Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-09-15T13:35:58.177Z] > authorizing via signed-in user (mateuszpenkala@gmail.com)
+[debug] [2021-09-15T13:35:58.178Z] [iam] checking project sleeptio for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-09-15T13:35:58.179Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-09-15T13:35:58.180Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-09-15T13:35:58.192Z] FetchError: request to https://firebase-public.firebaseio.com/cli.json failed, reason: getaddrinfo ENOTFOUND firebase-public.firebaseio.com
+    at ClientRequest.<anonymous> (C:\Users\mateu\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\node-fetch\lib\index.js:1461:11)
+    at ClientRequest.emit (node:events:394:28)
+    at ClientRequest.emit (node:domain:470:12)
+    at TLSSocket.socketErrorListener (node:_http_client:447:9)
+    at TLSSocket.emit (node:events:394:28)
+    at TLSSocket.emit (node:domain:470:12)
+    at emitErrorNT (node:internal/streams/destroy:193:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:158:3)
+    at processTicksAndRejections (node:internal/process/task_queues:83:21)
+[error] 
+[error] Error: Failed to make request to https://firebase-public.firebaseio.com/cli.json
+[debug] [2021-09-15T13:35:58.195Z] [iam] error while checking permissions, command may fail: FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2021-09-15T13:35:58.196Z] > refreshing access token with scopes: []
+[debug] [2021-09-15T13:35:58.196Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-09-15T13:35:58.202Z] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2021-09-15T13:35:58.216Z] FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+    at invalidCredentialError (C:\Users\mateu\AppData\Roaming\npm\node_modules\firebase-tools\lib\auth.js:141:12)
+    at refreshTokens (C:\Users\mateu\AppData\Roaming\npm\node_modules\firebase-tools\lib\auth.js:448:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Client.getAccessToken (C:\Users\mateu\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:144:23)
+    at async Client.addAuthHeader (C:\Users\mateu\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:135:21)
+    at async Client.request (C:\Users\mateu\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:93:34)
+    at async Object.getFirebaseProject (C:\Users\mateu\AppData\Roaming\npm\node_modules\firebase-tools\lib\management\projects.js:290:21)
+    at async Object.getDefaultHostingSite (C:\Users\mateu\AppData\Roaming\npm\node_modules\firebase-tools\lib\getDefaultHostingSite.js:8:21)
+    at async requireHostingSite (C:\Users\mateu\AppData\Roaming\npm\node_modules\firebase-tools\lib\requireHostingSite.js:9:18)
+    at async Object.fn (C:\Users\mateu\AppData\Roaming\npm\node_modules\firebase-tools\lib\commands\deploy.js:65:9)
+    at async C:\Users\mateu\AppData\Roaming\npm\node_modules\firebase-tools\lib\command.js:186:17
+[error] 
+[error] Error: Failed to get Firebase project sleeptio. Please make sure the project exists and your account has permission to access it.

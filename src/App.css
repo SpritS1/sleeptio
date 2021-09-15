@@ -417,6 +417,31 @@ h2 {
   }
 }
 
+.popup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e6e6e6;
+  color: #0f4b80;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border: 1px solid #cccccc;
+  padding: 1rem;
+  font-size: 1.5rem;
+  border-radius: 8px;
+  position: fixed;
+  z-index: 200;
+  top: 2rem;
+  right: 2rem;
+  cursor: pointer;
+  transition: opacity 0.1s ease-in-out;
+}
+.popup:hover {
+  opacity: 0.8;
+}
+.popup__close {
+  margin-left: 1rem;
+}
+
 .app {
   background-color: #1a1a1a;
   color: #e8f3fc;

@@ -57,7 +57,7 @@ const Modal = ({setIsModalOpen, resultHours, time, calculatorMode}) => {
             audio.play();
         }, timeout)
 
-        setIsModalOpen(false)
+        setIsModalOpen(false);
     }
 
     return ReactDom.createPortal(

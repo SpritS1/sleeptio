@@ -1,0 +1,28 @@
+@use '../sass/variables' as *;
+
+.popup {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $white;
+    color: $blue;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border: 1px solid $light-gray;
+    padding: 1rem;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    position: fixed;
+    z-index: 200;
+    top: 2rem;
+    right: 2rem;
+    cursor: pointer;
+    transition: opacity .1s ease-in-out;
+
+    &:hover {
+        opacity: .8;
+    }
+
+    &__close {
+        margin-left: 1rem;
+    }
+}
