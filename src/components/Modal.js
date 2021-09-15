@@ -17,13 +17,13 @@ const Modal = ({setIsModalOpen, resultHours, time, calculatorMode}) => {
         
         if (calculatorMode === 'sleep') {
             const dateTime = parseTimeToDate(time);
-            console.log('DateTime: ' + dateTime);
+            // console.log('DateTime: ' + dateTime);
 
             const notificationTime = moment(dateTime).subtract(minutesBeforeBedTime, 'minutes')._d;
-            console.log('NotificationTime: ' + notificationTime)
+            // console.log('NotificationTime: ' + notificationTime)
 
             const timeoutTime = moment(notificationTime).subtract(currentTimeMinutes, 'minutes')._d;
-            console.log('Timeout time: ' + timeoutTime);
+            // console.log('Timeout time: ' + timeoutTime);
 
             const timeoutInMiliseconds = (timeoutTime.getHours() * 60) + timeoutTime.getMinutes() * 60000;
 
@@ -31,18 +31,18 @@ const Modal = ({setIsModalOpen, resultHours, time, calculatorMode}) => {
         } 
         else if (calculatorMode === 'wake') {
             const dateTime = parseTimeToDate(bedTime);
-            console.log('DateTime: ' + dateTime);
+            // console.log('DateTime: ' + dateTime);
 
             const notificationTime = moment(dateTime).subtract(minutesBeforeBedTime, 'minutes')._d;
-            console.log('NotificationTime: ' + notificationTime)
+            // console.log('NotificationTime: ' + notificationTime)
 
             const timeoutTime = moment(notificationTime).subtract(currentTimeMinutes, 'minutes')._d;
-            console.log('Timeout time: ' + timeoutTime);
+            // console.log('Timeout time: ' + timeoutTime);
 
             const timeoutInMiliseconds = (timeoutTime.getHours() * 60) + timeoutTime.getMinutes() * 60000;
 
             timeout = timeoutInMiliseconds;
-            console.log('timeout: ' + timeout)
+            // console.log('timeout: ' + timeout)
         }
 
 
@@ -58,7 +58,7 @@ const Modal = ({setIsModalOpen, resultHours, time, calculatorMode}) => {
 
     return ReactDom.createPortal(
         <>  
-            <div className="modal-overlay" onClick={() => setIsModalOpen(false)}> </div>
+            <div className="overlay" onClick={() => setIsModalOpen(false)}> </div>
             <div className="modal">
                 <div className="modal__header">
                     <h2 className="modal__title"> Notification settings</h2>

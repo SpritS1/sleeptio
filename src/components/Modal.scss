@@ -1,6 +1,6 @@
 @use '../sass/variables' as *;
 
-.modal-overlay {
+.overlay {
     background-color: rgba($black, .5);
     position: fixed;
     width: 100vw;

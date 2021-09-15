@@ -246,7 +246,7 @@ h2 {
   color: rgba(242, 242, 242, 0.75);
 }
 
-.modal-overlay {
+.overlay {
   background-color: rgba(26, 26, 26, 0.5);
   position: fixed;
   width: 100vw;
