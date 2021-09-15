@@ -10,8 +10,7 @@ const Calculator = () => {
    const [resultHours, setResultHours] = useState([])
 
    const parseToDate = (time) => {
-      const date = new Date();
-      date.setHours(time.substr(0, 2), time.substr(3, 2), 0)
+      const date = moment(time, 'HH:mm')._d;
       return date;
    }
 

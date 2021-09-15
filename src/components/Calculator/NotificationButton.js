@@ -2,7 +2,6 @@ import { useState } from "react";
 import Modal from "../Modal";
 
 const NotificationButton = ({resultHours, time, calculatorMode}) => {
-    // const [isNotificationSet, setIsNotificationSet] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
 

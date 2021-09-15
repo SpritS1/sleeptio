@@ -7,27 +7,13 @@ const Modal = ({setIsModalOpen, resultHours, time, calculatorMode}) => {
     const [minutesBeforeBedTime, setminutesBeforeBedTime] = useState('15');
     const [notificationSound, setNotificationSound] = useState('/audio/juntos.mp3');
 
-    // const currentTime = moment(new Date());
+    const parseTimeToDate = (time) => moment(time, 'HH:mm')._d;
 
-
-    // const calculateNotificationTime = (bedTime, notificationTime, currentTime) => {
-    //     const date = new Date();
-    //     console.log(date);
-    //     date.setHours(bedTime.substr(0, 2), bedTime.substr(3, 2), 0)
-    //     console.log(date);
-    // }
-
-    const parseTimeToDate = (time) => {
-        const date = new Date();
-        date.setHours(time.substr(0, 2), time.substr(3, 2), 0);
-        return date;
-    }
-
-    const handleNotificationButton = (time) => {
+    const handleNotificationButton = (time, bedTime, calculatorMode) => {
         const currentTime = new Date();
         const currentTimeMinutes = (currentTime.getHours() * 60) + currentTime.getMinutes();
 
-        let timeout;
+        let timeout = 0;
         
         if (calculatorMode === 'sleep') {
             const dateTime = parseTimeToDate(time);
@@ -42,13 +28,28 @@ const Modal = ({setIsModalOpen, resultHours, time, calculatorMode}) => {
             const timeoutInMiliseconds = (timeoutTime.getHours() * 60) + timeoutTime.getMinutes() * 60000;
 
             timeout = timeoutInMiliseconds;
+        } 
+        else if (calculatorMode === 'wake') {
+            const dateTime = parseTimeToDate(bedTime);
+            console.log('DateTime: ' + dateTime);
+
+            const notificationTime = moment(dateTime).subtract(minutesBeforeBedTime, 'minutes')._d;
+            console.log('NotificationTime: ' + notificationTime)
+
+            const timeoutTime = moment(notificationTime).subtract(currentTimeMinutes, 'minutes')._d;
+            console.log('Timeout time: ' + timeoutTime);
+
+            const timeoutInMiliseconds = (timeoutTime.getHours() * 60) + timeoutTime.getMinutes() * 60000;
+
+            timeout = timeoutInMiliseconds;
+            console.log('timeout: ' + timeout)
         }
 
 
         setTimeout(() => {
             const icon = 'favicon.png'
             const audio = new Audio(notificationSound);
-            new Notification("Hey, it's time to sleep!", {body: `You should fall asleep at ${bedTime}`, icon})
+            new Notification("Hey, it's time to sleep!", {body: `You should fall asleep at ${time}`, icon})
             audio.play();
         }, timeout)
 
@@ -69,13 +70,11 @@ const Modal = ({setIsModalOpen, resultHours, time, calculatorMode}) => {
                     {calculatorMode === 'wake' && 
                         <select value={bedTime} onChange={(e) => setBedTime(e.target.value)}>
                             {resultHours.map((hour) => {
-                                return <option>{hour} </option>
+                                return <option value={hour} key={hour}> {hour} </option>
                             })}
                         </select>
                     }
-                    {calculatorMode === 'sleep' && 
-                        <span>{time}</span>
-                    }
+                    {calculatorMode === 'sleep' && <span>{time}</span>}
                 </div>
 
                 <div className="modal__section">
@@ -101,7 +100,7 @@ const Modal = ({setIsModalOpen, resultHours, time, calculatorMode}) => {
 
                 <p className="modal__warning">Do not close the page, otherwise the notification will not work!</p>
 
-                <button className="modal__button" onClick={() => handleNotificationButton(time)}>Set up the notification</button>
+                <button className="modal__button" onClick={() => handleNotificationButton(time, bedTime, calculatorMode)}>Set up the notification</button>
             </div>
         </>, document.getElementById('modal')
      );
