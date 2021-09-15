@@ -3,33 +3,20 @@ import Modal from "../Modal";
 import Popup from "../Popup";
 
 const NotificationButton = ({resultHours, time, calculatorMode}) => {
-    const [isNotificationSet, setIsNotificationSet] = useState(false);
+    // const [isNotificationSet, setIsNotificationSet] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [showPopup, setShowPopup] = useState(false);
-
-    useEffect(() => {
-        if (!isModalOpen) {
-            setIsNotificationSet(true);
-            setShowPopup(true);
-        }
-    }, [isModalOpen])
-
-    useEffect(() => {
-        if (showPopup) {
-            setShowPopup(true);
-        }
-    }, [showPopup])
-
-    // useEffect(() => {
-    //     if (isNotificationSet) {
-
-    //     }
-    // }, [isNotificationSet])
 
     return ( 
         <>  
             {showPopup && <Popup text={'Notification set'} setShowPopup={setShowPopup} />}
-            {isModalOpen && <Modal setIsModalOpen={setIsModalOpen} resultHours={resultHours} time={time} calculatorMode={calculatorMode} setIsNotificationSet={setIsNotificationSet}/>}
+            {isModalOpen && <Modal 
+                setIsModalOpen={setIsModalOpen} 
+                resultHours={resultHours} 
+                time={time} 
+                calculatorMode={calculatorMode}
+                setShowPopup={setShowPopup}
+            />}
             <button className="notification-button" onClick={() => {
                 if ('Notification' in window) {
                     Notification.requestPermission()

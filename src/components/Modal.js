@@ -2,7 +2,7 @@ import { useState} from "react";
 import moment from "moment";
 import ReactDom from "react-dom";
 
-const Modal = ({setIsModalOpen, resultHours, time, calculatorMode}) => {
+const Modal = ({setIsModalOpen, resultHours, time, calculatorMode, setShowPopup}) => {
     const [bedTime, setBedTime] = useState(resultHours[0]);
     const [minutesBeforeBedTime, setminutesBeforeBedTime] = useState('15');
     const [notificationSound, setNotificationSound] = useState('/audio/juntos.mp3');
@@ -57,6 +57,7 @@ const Modal = ({setIsModalOpen, resultHours, time, calculatorMode}) => {
             audio.play();
         }, timeout)
 
+        setShowPopup(true);
         setIsModalOpen(false);
     }
 
