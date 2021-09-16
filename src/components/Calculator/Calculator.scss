@@ -29,3 +29,9 @@
     background: white;
     color: $black;
 }
+
+@media screen and (min-width: 800px) {
+    .calculator {
+        padding: 2rem;
+    }
+}

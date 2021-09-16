@@ -9,9 +9,9 @@ h2 {
 
 .navbar {
   width: 100%;
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 0.75rem 0;
+  padding: 0.75rem 0.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -35,6 +35,11 @@ h2 {
   margin-right: 0.5rem;
 }
 
+@media screen and (min-width: 800px) {
+  .navbar {
+    padding: 1rem 2rem;
+  }
+}
 .hour {
   background-color: #e6e6e6;
   color: #0f4b80;
@@ -47,19 +52,30 @@ h2 {
   font-size: 2rem;
   margin: 0;
   color: #333333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .hour__info {
   margin: 0.5rem 0;
   color: #333333;
+}
+.hour:first-child .hour__time::after {
+  content: "Recommended";
+  background-color: #6959a0;
+  color: #e6e6e6;
+  padding: 0.5rem;
+  border-radius: 16px;
+  font-size: 1rem;
 }
 
 .hours-list {
   width: 100%;
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 0.5rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 10px;
 }
 
@@ -178,6 +194,7 @@ h2 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 .calculator {
@@ -187,7 +204,7 @@ h2 {
   background: rgba(230, 230, 230, 0.1);
   padding: 2rem 0.5rem;
   border-radius: 8px;
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto 1rem auto;
 }
 .calculator h2 {
@@ -205,6 +222,11 @@ h2 {
   color: #1a1a1a;
 }
 
+@media screen and (min-width: 800px) {
+  .calculator {
+    padding: 2rem;
+  }
+}
 .mode-buttons {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -237,13 +259,18 @@ h2 {
   padding: 1rem 0.5rem;
   border-radius: 8px;
   text-align: center;
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
 }
 .current-time-results__result {
   font-size: 4rem;
 }
 
+@media screen and (min-width: 800px) {
+  .current-time-results {
+    padding: 2rem;
+  }
+}
 .footer {
   padding: 2rem 0;
   text-align: center;
@@ -278,7 +305,7 @@ h2 {
   z-index: 100;
   background-color: #e6e6e6;
   padding: 1.5rem 2rem;
-  max-width: 700px;
+  max-width: 800px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -474,7 +501,7 @@ h2 {
   padding: 0 1rem 4rem 1rem;
 }
 .app__about {
-  max-width: 700px;
+  max-width: 800px;
   padding: 2rem 1rem;
   margin: 0 auto;
 }

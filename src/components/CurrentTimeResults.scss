@@ -12,3 +12,9 @@
         font-size: 4rem;
     }
 }
+
+@media screen and (min-width: 800px) {
+    .current-time-results {
+        padding: 2rem;
+    }
+}

@@ -12,11 +12,27 @@
         font-size: 2rem;
         margin: 0;
         color: $gray;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     &__info {
         // font-size: 1rem;
         margin: .5rem 0;
         color: $gray;
+    }
+    
+    // &:first-child {
+    //     border: solid 2px $purple;
+    // }
+
+    &:first-child &__time::after {
+        content: 'Recommended';
+        background-color: $purple;
+        color: $white;
+        padding: .5rem;
+        border-radius: 16px;
+        font-size: 1rem;
     }
 }

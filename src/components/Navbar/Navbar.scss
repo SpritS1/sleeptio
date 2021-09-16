@@ -4,7 +4,7 @@
     width: 100%;
     max-width: $max-width;
     margin: 0 auto;
-    padding: .75rem 0;
+    padding: .75rem .5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -25,5 +25,11 @@
             font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f236";
             margin-right: .5rem;
         }
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .navbar {
+        padding: 1rem 2rem;
     }
 }
