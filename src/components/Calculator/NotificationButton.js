@@ -19,14 +19,20 @@ const NotificationButton = ({resultHours, time, calculatorMode}) => {
             />}
             <button className="notification-button" onClick={() => {
                 if ('Notification' in window) {
-                    Notification.requestPermission()
-                    .then(() => {
+                    Notification.requestPermission(() => {
                         if (Notification.permission === 'granted') {
                             setIsModalOpen(true);
                         } else if (Notification.permission === "denied") {
                             alert("Notifications blocked. Please enable them in your browser.");
                         }
-                    })                    
+                    })
+                    // .then(() => {
+                    //     if (Notification.permission === 'granted') {
+                    //         setIsModalOpen(true);
+                    //     } else if (Notification.permission === "denied") {
+                    //         alert("Notifications blocked. Please enable them in your browser.");
+                    //     }
+                    // })                    
                 } else {
                     console.log('Your browser does not support notifications 😔')
                 }
