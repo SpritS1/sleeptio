@@ -24,7 +24,8 @@ yarn-error.log*
 
 /project_ideas.txt
 
-# firebase
-.firebase/
-.firebaserc
-firebase.json
+# # firebase
+# .firebase/
+# .firebaserc
+# firebase.json
+# firebase.js

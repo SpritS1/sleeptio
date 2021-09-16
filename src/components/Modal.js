@@ -26,7 +26,7 @@ const Modal = ({setIsModalOpen, resultHours, time, calculatorMode, setShowPopup}
             // console.log('Timeout time: ' + timeoutTime);
 
             const timeoutInMiliseconds = (timeoutTime.getHours() * 60) + timeoutTime.getMinutes() * 60000;
-
+            
             timeout = timeoutInMiliseconds;
         } 
         else if (calculatorMode === 'wake') {

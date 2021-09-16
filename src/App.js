@@ -3,6 +3,7 @@ import Navbar from './components/Navbar/Navbar';
 import Calculator from './components/Calculator/Calculator';
 import Footer from './components/Footer';
 import CurrentTimeResults from './components/CurrentTimeResults';
+import {app, analytics} from './firebase';
 
 function App() {
   return (
