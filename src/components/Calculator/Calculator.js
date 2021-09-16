@@ -19,7 +19,7 @@ const Calculator = () => {
          const convertedTime = parseToDate(time);
          const sleepTime = [];
          
-         for (let i = 4; i <= 7; i++) {
+         for (let i = 3; i <= 6; i++) {
             let calculatedTime;
             if (mode === 'sleep') {
                calculatedTime = moment(convertedTime).add(90 * i, 'minutes')._d;
@@ -34,7 +34,6 @@ const Calculator = () => {
                calcTimeMinutes = '0' + calcTimeMinutes;
             }
 
-   
             const StringDate = calcTimeHours + ':' + calcTimeMinutes;
             sleepTime.push(StringDate);
          }
@@ -42,12 +41,12 @@ const Calculator = () => {
       }
 
       if (time) {
-         const sleepHours = calculateSleepHours(time, calculatorMode);
+         const sleepHours = calculateSleepHours(time, calculatorMode).reverse();
 
          if (calculatorMode === 'sleep') {
-            setResultHours(sleepHours);         
+            setResultHours(sleepHours);   
          } else if (calculatorMode === 'wake') {
-            setResultHours(sleepHours.reverse());         
+            setResultHours(sleepHours);         
          } 
       }
 
