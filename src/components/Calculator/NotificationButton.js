@@ -34,7 +34,7 @@ const NotificationButton = ({resultHours, time, calculatorMode}) => {
                     //     }
                     // })                    
                 } else {
-                    console.log('Your browser does not support notifications 😔')
+                    alert('Your browser does not support notifications 😔')
                 }
 
                 }}>Notify me
