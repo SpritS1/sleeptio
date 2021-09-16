@@ -35,20 +35,32 @@ h2 {
   margin-right: 0.5rem;
 }
 
-.hour::after {
-  content: ",";
+.hour {
+  background-color: #e6e6e6;
+  color: #0f4b80;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-.hour:last-child::after {
-  content: "";
+.hour__time {
+  font-size: 2rem;
+  margin: 0;
+  color: #333333;
+}
+.hour__info {
+  margin: 0.5rem 0;
+  color: #333333;
 }
 
 .hours-list {
+  width: 100%;
   list-style-type: none;
   margin: 0;
   padding: 0;
-  font-size: 4rem;
-  text-align: center;
-  color: #e6e6e6;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 10px;
 }
 
 .notification-button {
