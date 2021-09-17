@@ -44,7 +44,6 @@ h2 {
   background-color: #e6e6e6;
   color: #0f4b80;
   padding: 1rem;
-  margin-bottom: 1rem;
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -62,7 +61,7 @@ h2 {
 }
 .hour:first-child .hour__time::after {
   content: "Recommended";
-  background-color: #6959a0;
+  background-color: #DB901C;
   color: #e6e6e6;
   padding: 0.5rem;
   border-radius: 16px;
@@ -76,7 +75,7 @@ h2 {
   padding: 0.5rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 10px;
+  grid-gap: 1.5rem;
 }
 
 .notification-button {
@@ -249,11 +248,17 @@ h2 {
 .mode-buttons__button.active {
   background: #e6e6e6;
   color: #0f4b80;
-}
-.mode-buttons__button.active:hover {
-  background: rgba(230, 230, 230, 0.9);
+  cursor: auto;
 }
 
+@media screen and (min-width: 800px) {
+  .mode-buttons {
+    gap: 20px;
+  }
+  .mode-buttons__button {
+    padding: 0.75rem 1rem;
+  }
+}
 .current-time-results {
   background: rgba(230, 230, 230, 0.1);
   padding: 1rem 0.5rem;

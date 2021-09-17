@@ -4,7 +4,7 @@
     background-color: $white;
     color: $blue;
     padding: 1rem;
-    margin-bottom: 1rem;
+    // margin-bottom: 1rem;
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     
@@ -18,18 +18,13 @@
     }
 
     &__info {
-        // font-size: 1rem;
         margin: .5rem 0;
         color: $gray;
     }
-    
-    // &:first-child {
-    //     border: solid 2px $purple;
-    // }
 
     &:first-child &__time::after {
         content: 'Recommended';
-        background-color: $purple;
+        background-color: $orange;
         color: $white;
         padding: .5rem;
         border-radius: 16px;

@@ -23,10 +23,17 @@
         &.active {
             background: $white;
             color: $blue;
+            cursor: auto;
+        }
+    }
+}
 
-            &:hover {
-                background: rgba($white, .9);
-            }
+@media screen and (min-width: 800px) {
+    .mode-buttons {
+        gap: 20px;
+        
+        &__button {
+            padding: .75rem 1rem;
         }
     }
 }
