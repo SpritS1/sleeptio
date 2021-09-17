@@ -76,14 +76,19 @@ h2 {
   padding: 0.5rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 1.5rem;
+  gap: 1rem;
 }
 
+@media screen and (min-width: 800px) {
+  .hours-list {
+    gap: 1.5rem;
+  }
+}
 .notification-button {
   padding: 1rem 2rem;
   font-size: 1.5rem;
   color: #e6e6e6;
-  margin-top: 1rem;
+  margin-top: 2rem;
   cursor: pointer;
   background-color: unset;
   border: 2px solid;
@@ -261,6 +266,9 @@ h2 {
   }
 }
 .current-time-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background: rgba(230, 230, 230, 0.1);
   padding: 1rem 0.5rem;
   border-radius: 8px;
@@ -268,8 +276,8 @@ h2 {
   max-width: 800px;
   margin: 0 auto;
 }
-.current-time-results__result {
-  font-size: 4rem;
+.current-time-results h2 {
+  margin: 2rem 0;
 }
 
 @media screen and (min-width: 800px) {

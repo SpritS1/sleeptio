@@ -1,6 +1,9 @@
 @use '../sass/variables' as *;
 
 .current-time-results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: rgba($white, .1);
     padding: 1rem .5rem;
     border-radius: 8px;
@@ -8,8 +11,8 @@
     max-width: $max-width;
     margin: 0 auto;
 
-    &__result {
-        font-size: 4rem;
+    h2 {
+        margin: 2rem 0;
     }
 }
 
