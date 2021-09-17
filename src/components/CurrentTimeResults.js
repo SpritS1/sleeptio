@@ -6,7 +6,7 @@ const CurrentTimeResults = (props) => {
     const calcWakeTime = (time) => {
         const sleepTime = [];
         for (let i = 5; i <= 6; i++) {
-            const result = moment(time).add(90 * i, 'minutes')._d;
+            const result = moment(time).add((90 * i) + 15, 'minutes')._d;
             sleepTime.push(moment(result).format('HH:mm'))
         }
         console.log(sleepTime)
