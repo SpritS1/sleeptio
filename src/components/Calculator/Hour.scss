@@ -18,11 +18,12 @@
     }
 
     &__info {
-        margin: .5rem 0;
+        margin: 1rem 0 .5rem 0;
         color: $gray;
+        text-align: left;
     }
 
-    &:first-child &__time::after {
+    &.recommended &__time::after {
         content: 'Recommended';
         background-color: $orange;
         color: $white;

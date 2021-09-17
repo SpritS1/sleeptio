@@ -7,7 +7,7 @@ const HoursList = ({resultHours, calculatorMode}) => {
     return ( 
         <ul className='hours-list'>
             {resultHours && resultHours.map((hour) => {
-                return <Hour hour={hour} hoursOfSleep={hoursOfSleep -= 1.5} sleepCycles={sleepCycles--} key={hour}></Hour>
+                return <Hour hour={hour} hoursOfSleep={hoursOfSleep -= 1.5} isRecommended={sleepCycles === 6 ? true : false} sleepCycles={sleepCycles--} key={hour}></Hour>
             })}
         </ul>
      );

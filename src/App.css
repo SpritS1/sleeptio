@@ -56,10 +56,11 @@ h2 {
   align-items: center;
 }
 .hour__info {
-  margin: 0.5rem 0;
+  margin: 1rem 0 0.5rem 0;
   color: #333333;
+  text-align: left;
 }
-.hour:first-child .hour__time::after {
+.hour.recommended .hour__time::after {
   content: "Recommended";
   background-color: #DB901C;
   color: #e6e6e6;
