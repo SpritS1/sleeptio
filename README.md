@@ -12,5 +12,5 @@ JavaScript, React
 
 ## Images
 
-![image](https://user-images.githubusercontent.com/77857948/133075936-9d888057-c72d-481b-86ca-bf16be6446c3.png)
+![image](https://user-images.githubusercontent.com/77857948/134011762-ed2b0d7f-a414-4a21-a4bc-2b9e67272a96.png)
 
